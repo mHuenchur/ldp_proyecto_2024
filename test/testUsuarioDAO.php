@@ -1,0 +1,1 @@
+require_once "../app/config/DBConfig.php";
