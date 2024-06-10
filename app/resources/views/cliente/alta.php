@@ -21,8 +21,48 @@
                                         </div>
                                     </div>
                                     <div class="mb-2">
-                                        <label for="datoCuenta" class="form-label">ID de la cuenta</label>
-                                        <input type="text" id="datoCuenta" name="datoCuenta" class="form-control" required minlength="6" maxlength="20">
+                                        <label for="datoDni" class="form-label">DNI</label>
+                                        <input type="number" id="datoDni" name="datoDni" class="form-control" required maxlength="8" minlength="8">
+                                        <div class="invalid-feedback">
+                                            Completar campo
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="datoCuit" class="form-label">CUIT</label>
+                                        <input type="number" id="datoCuit" name="datoCuit" class="form-control" required maxlength="11">
+                                        <div class="invalid-feedback">
+                                            Completar campo
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-2">
+                                        <label for="datoPerfil" class="form-label">Tipo de usuario</label>
+                                        <select class="form-select" id="datoPerfil" name="datoPerfil" required>
+                                            <option value="" selected>Seleccionar</option>
+                                            <option value="1">Empresa</option>
+                                            <option value="2">Persona</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Seleccionar un perfil
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="datoNombres" class="form-label">Provincia</label>
+                                        <input type="text" id="datoNombre" name="datoNombres" class="form-control" required maxlength="45">
+                                        <div class="invalid-feedback">
+                                            Completar campo
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="datoNombres" class="form-label">Localidad</label>
+                                        <input type="text" id="datoNombre" name="datoNombres" class="form-control" required maxlength="45">
+                                        <div class="invalid-feedback">
+                                            Completar campo
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="datoNombres" class="form-label">Telefono</label>
+                                        <input type="text" id="datoNombre" name="datoNombres" class="form-control" required maxlength="45">
                                         <div class="invalid-feedback">
                                             Completar campo
                                         </div>
@@ -32,31 +72,6 @@
                                         <input type="email" id="datoCorreo" name="datoCorreo" class="form-control" required maxlength="80">
                                         <div class="invalid-feedback">
                                             Completar campo
-                                        </div>
-                                    </div>
-                                    <div class="mb-2">
-                                        <label for="datoClave" class="form-label">Contraseña</label>
-                                        <input type="password" id="datoClave" name="datoClave" class="form-control" required minlength="8" maxlength="15">
-                                        <div class="invalid-feedback">
-                                            Minimo de 8 caracteres y maximo de 15 caracteres
-                                        </div>
-                                    </div>
-                                    <div class="mb-2">
-                                        <label for="datoClaveConfirmacion" class="form-label">Confirmar contraseña</label>
-                                        <input type="password" id="datoClaveConfirmacion" class="form-control" required minlength="8" maxlength="15">
-                                        <div class="invalid-feedback">
-                                            Mínimo de 8 caracteres y máximo de 15 caracteres
-                                        </div>
-                                    </div>
-                                    <div class="mb-2">
-                                        <label for="datoPerfil" class="form-label">Perfil de usuario</label>
-                                        <select class="form-select" id="datoPerfil" name="datoPerfil" required>
-                                            <option value="" selected>Seleccionar</option>
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Operador</option>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            Seleccionar un perfil
                                         </div>
                                     </div>
                                 </div>

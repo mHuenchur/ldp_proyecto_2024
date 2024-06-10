@@ -38,15 +38,12 @@
                                         <label for="datoClave" class="form-label">Contraseña</label>
                                         <input type="password" id="datoClave" name="datoClave" class="form-control" required minlength="8" maxlength="15">
                                         <div class="invalid-feedback">
-                                            Minimo de 8 caracteres y maximo de 15 caracteres
+                                            Minimo de + caracteres y maximo de + caracteres
                                         </div>
                                     </div>
                                     <div class="mb-2">
                                         <label for="datoClaveConfirmacion" class="form-label">Confirmar contraseña</label>
                                         <input type="password" id="datoClaveConfirmacion" class="form-control" required minlength="8" maxlength="15">
-                                        <div class="invalid-feedback">
-                                            Mínimo de 8 caracteres y máximo de 15 caracteres
-                                        </div>
                                     </div>
                                     <div class="mb-2">
                                         <label for="datoPerfil" class="form-label">Perfil de usuario</label>
@@ -62,7 +59,7 @@
                                 </div>
                                 <div class="card-footer text-muted">
                                     <div>
-                                        <button type="button" class="btn btn-primary btn-lg" onclick="cuenta.alta()">Enviar</button>
+                                        <button type="button" class="btn btn-primary btn-lg" onclick="">Enviar</button>
                                         <button type="reset" class="btn btn-primary btn-lg">Resetear</button>
                                     </div>
                                 </div>
