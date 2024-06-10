@@ -11,7 +11,7 @@ final class PerfilDAO extends DAO implements InterfaceDAO{
 
     public function __construct($conn)
     {
-        parent::__construct($conn);
+        parent::__construct($conn, "perfiles");
     }
     
     public function save(InterfaceDTO $object): void{
