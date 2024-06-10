@@ -75,7 +75,6 @@ final class UsuarioDTO implements InterfaceDTO{
     public function setId($id): void{
         $this->id = (is_integer($id) && $id > 0) ? $id : 0;
     }
-
     public function setApellido($apellido): void{
         $this->apellido = 
         is_string($apellido) && (strlen(trim($apellido)) <= 45) 
@@ -88,37 +87,60 @@ final class UsuarioDTO implements InterfaceDTO{
         ? trim($nombres) 
         : "";
     }
-
     public function setCuenta($cuenta): void{
         $this->cuenta = 
         is_string($cuenta) && preg_match('/^[a-zA-Z0-9]{6,10}$/', $cuenta)
         ? $cuenta
         : "";
     }
-///////////
+    //CHEQUEAR TODO ESTO
     public function setCorreo($correo): void{
-        
+        $this->correo = 
+        is_string($correo) && (strlen(trim($correo)) <= 255) 
+        ? trim($correo) 
+        : "";
     }
     public function setClave($clave): void{
-
+        $this->clave = 
+        is_string($clave) && (strlen(trim($clave)) <= 255) 
+        ? trim($clave) 
+        : "";
     }
     public function setPerfilId($perfilId): void{
-
+        $this->perfilId = 
+        is_integer($perfilId) && $perfilId != 0
+        ? trim($perfilId) 
+        : 0;
     }
     public function setEstado($estado): void{
-
+        $this->estado = 
+        is_integer($estado) && $estado != 0
+        ? trim($estado)
+        : 0;
     }
     public function setHoraEntrada($horaEntrada): void{
-
+        $this->horaEntrada = 
+        is_string($horaEntrada) && (strlen(trim($horaEntrada)) <= 10) 
+        ? trim($horaEntrada) 
+        : "";
     }
     public function setHoraSalida($horaSalida): void{
-
+        $this->horaSalida = 
+        is_string($horaSalida) && (strlen(trim($horaSalida)) <= 10) 
+        ? trim($horaSalida) 
+        : "";
     }
     public function setFechaAlta($fechaAlta): void{
-
+        $this->fechaAlta = 
+        is_string($fechaAlta) && (strlen(trim($fechaAlta)) <= 10) 
+        ? trim($fechaAlta) 
+        : "";
     }
     public function setResetear($resetear): void{
-
+        $this->resetear = 
+        is_integer($resetear) && $resetear != 0
+        ? trim($resetear)
+        : 0;
     }
     // ** METODOS **
     public function toArray(): array{
