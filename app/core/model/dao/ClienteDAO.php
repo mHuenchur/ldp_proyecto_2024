@@ -14,21 +14,45 @@ final class ClienteDAO extends DAO implements InterfaceDAO{
         parent::__construct($conn, "clientes");
     }
     public function save(InterfaceDTO $object): void{
-        $sql = "INSERT INTO {$this->table} VALUES (DEFAULT, :apellido, :nombres, :dni, :cuit, :tipo, :provinciaId, :localidad, :telefono, :correo);";
+        //********* AGREGAR VALIDACIONES
+
+        $sql = "INSERT INTO {$this->table} VALUES (DEFAULT, :apellido, :nombres, :dni, :cuit, :tipo, :provinciaId, 
+        :localidad, :telefono, :correo);";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute($object->toArray());
+
+        $data = $object->toArray();
+        unset($data["id"]);
+
+        $stmt->execute($data);
         //CON CONSULTAS PREPARADAS UTILIZAR conn->exec()
+
+        $object->setId($this->conn->lastInsertId());
     }
 
     public function load($id): ClienteDTO{
-        return new ClienteDTO();
+        $sql = "SELECT id, apellido, nombres, dni, cuit, tipo, provinciaId, localidad, telefono, 
+                correo FROM {$this->table} WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(["id" => $id]);
+
+        return new ClienteDTO($stmt->fetch(\PDO::FETCH_ASSOC));
     }
 
-    public function update($object): void{
+    public function update(InterfaceDTO $object): void{
+        //********* AGREGAR VALIDACIONES
 
+        $sql = "UPDATE {$this->table} SET apellido = :apellido, nombres = :nombres, dni = :dni, cuit = :cuit, 
+        tipo = :tipo, provinciaId = :provinciaId, localidad = :localidad, telefono = :telefono, correo = :correo 
+        WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($object->toArray());
     }
 
     public function delete($id): void{
-
+        $sql = "DELETE FROM {$this->table} WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            "id" => $id
+        ]);
     }
 }

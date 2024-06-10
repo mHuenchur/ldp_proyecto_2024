@@ -21,10 +21,10 @@ final class PerfilDTO implements InterfaceDTO{
     }
     /***************************************************  SETTERS  */
     public function setId($id): void{
-        $this->id = $id;
+        $this->id = (is_integer($id) && $id > 0) ? $id : 0;
     }
     public function setNombre($nombre): void{
-        $this->nombre = $nombre;
+        $this->nombre = (preg_match('/^[a-zA-Z\s]{1,45}$/', $nombre)) ? $nombre : "";
     }
     /***************************************************  METODOS  */
     public function toArray(): array
