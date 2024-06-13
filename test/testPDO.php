@@ -56,7 +56,7 @@ try{
             "id" => 0,
             "nombre" => "Santa Cruz"
         ];
-    */
+    
         //$provinciaDto = new ProvinciaDTO($data);
         $provinciaDao = new ProvinciaDAO($conexion);
         $provinciaDto = $provinciaDao->load(3);
@@ -67,8 +67,7 @@ try{
         $provinciaDto->setNombre("Chubut");
         $provinciaDao->update($provinciaDto);
 
-        $provinciaDao->delete(5);
-        
+        $provinciaDao->delete(5);*/
 
     }catch(PDOException $ex){
         echo '<p>Error: ' . $ex->getMessage() . '</p>';

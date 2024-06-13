@@ -1,8 +1,10 @@
 <?php
 namespace app\core\controller;
+
+use app\core\controller\base\Controller;
 use app\core\controller\base\InterfaceController;
 
-final class ClienteController implements InterfaceController{
+final class ClienteController extends Controller implements InterfaceController{
 
     //Invoca la vista principal del modulo
     public function index(): void{

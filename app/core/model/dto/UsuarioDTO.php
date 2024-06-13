@@ -22,15 +22,14 @@ final class UsuarioDTO implements InterfaceDTO{
         $this->setApellido($data["apellido"] ?? "");
         $this->setNombres($data["nombres"] ?? "");
         $this->setCuenta($data["cuenta"] ?? "");
-        /*
         $this->setCorreo($data["correo"] ?? "");
         $this->setClave($data["clave"] ?? "");
         $this->setPerfilId($data["perfilId"] ?? 0);
-        $this->setEstado($data["estado"] ?? 0);
-        $this->setHoraEntrada($data["horaEntrada"] ?? null);
-        $this->setHoraSalida($data["horaSalida"] ?? null);
+        $this->setEstado($data["estado"] ?? 1);
+        $this->setHoraEntrada($data["horaEntrada"] ?? "");
+        $this->setHoraSalida($data["horaSalida"] ?? "");
         $this->setFechaAlta($data["fechaAlta"] ?? "");
-        $this->setResetear($data["resetear"] ?? 0);*/
+        $this->setResetear($data["resetear"] ?? 0);
     }
 
     // ** GETTERS **
@@ -96,67 +95,67 @@ final class UsuarioDTO implements InterfaceDTO{
     //CHEQUEAR TODO ESTO
     public function setCorreo($correo): void{
         $this->correo = 
-        is_string($correo) && (strlen(trim($correo)) <= 255) 
-        ? trim($correo) 
+        is_string($correo) && filter_var($correo, FILTER_VALIDATE_EMAIL) 
+        ? $correo
         : "";
     }
     public function setClave($clave): void{
         $this->clave = 
-        is_string($clave) && (strlen(trim($clave)) <= 255) 
-        ? trim($clave) 
+        is_string($clave) && preg_match('/^[a-zA-Z0-9]{6,15}$/', $clave) 
+        ? $clave
         : "";
     }
     public function setPerfilId($perfilId): void{
         $this->perfilId = 
-        is_integer($perfilId) && $perfilId != 0
-        ? trim($perfilId) 
+        (is_integer($perfilId) && $perfilId > 0)
+        ? $perfilId
         : 0;
     }
     public function setEstado($estado): void{
         $this->estado = 
-        is_integer($estado) && $estado != 0
-        ? trim($estado)
-        : 0;
+        ($estado === 0 || $estado === 1)
+        ? $estado
+        : 1;
     }
     public function setHoraEntrada($horaEntrada): void{
         $this->horaEntrada = 
-        is_string($horaEntrada) && (strlen(trim($horaEntrada)) <= 10) 
-        ? trim($horaEntrada) 
+        is_string($horaEntrada)
+        ? $horaEntrada 
         : "";
     }
     public function setHoraSalida($horaSalida): void{
         $this->horaSalida = 
-        is_string($horaSalida) && (strlen(trim($horaSalida)) <= 10) 
-        ? trim($horaSalida) 
+        is_string($horaSalida)
+        ? $horaSalida
         : "";
     }
     public function setFechaAlta($fechaAlta): void{
         $this->fechaAlta = 
-        is_string($fechaAlta) && (strlen(trim($fechaAlta)) <= 10) 
-        ? trim($fechaAlta) 
+        is_string($fechaAlta)
+        ? $fechaAlta 
         : "";
     }
     public function setResetear($resetear): void{
         $this->resetear = 
-        is_integer($resetear) && $resetear != 0
-        ? trim($resetear)
+        ($resetear === 0 || $resetear === 1)
+        ? $resetear
         : 0;
     }
     // ** METODOS **
     public function toArray(): array{
         return [
-            //"id" => $this->getId(),
-            "appelido" => $this->getApellido(),
+            "id" => $this->getId(),
+            "apellido" => $this->getApellido(),
             "nombres" => $this->getNombres(),
-            "cuenta" => $this->getCuenta()/*
-            "clave" => $this->getClave(),
+            "cuenta" => $this->getCuenta(),
             "correo" => $this->getCorreo(),
+            "clave" => $this->getClave(),
             "perfilId" => $this->getPerfilId(),
             "estado" => $this->getEstado(),
             "horaEntrada" => $this->getHoraEntrada(),
             "horaSalida" => $this->getHoraSalida(),
             "fechaAlta" => $this->getFechaAlta(),
-            "resetear" => $this->getResetear()*/
+            "resetear" => $this->getResetear()
         ];
     }
 }

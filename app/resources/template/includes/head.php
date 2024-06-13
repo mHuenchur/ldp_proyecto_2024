@@ -8,3 +8,5 @@
 <script defer src="assets/libs/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="assets/css/style.css">
+
+<link type="text/css" rel="stylesheet" href="app/css/estilo.css">

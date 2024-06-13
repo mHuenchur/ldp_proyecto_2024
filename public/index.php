@@ -46,6 +46,11 @@
             case "delete":
                 $controller->delete();
                 break;
+
+
+            case "login":
+                $controller->login();
+                break;
             default: break;
         }
     }

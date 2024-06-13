@@ -15,16 +15,17 @@ final class UsuarioDAO extends DAO implements InterfaceDAO{
     }
     public function save(InterfaceDTO $object): void{
         //********* AGREGAR VALIDACIONES
-
-        
-        $sql = "INSERT INTO {$this->table} VALUES (DEFAULT, :apellido, :nombres, :cuenta, :correo, :clave, 
-        :perfilId, :estado, :horaEntrada, :horaSalida, NOW(), 0)";
+        $sql = "INSERT INTO {$this->table} VALUES (DEFAULT, :apellido, :nombres, :cuenta, :correo, :clave, :perfilId, 1, :horaEntrada, :horaSalida, NOW(), 0)";
         $stmt = $this->conn->prepare($sql);
-        
         $data = $object->toArray();
+        
         unset($data["id"]);
-
-
+        unset($data["estado"]);
+        unset($data["fechaAlta"]);
+        unset($data["resetear"]);
+        $clave = password_hash($object->getClave(), PASSWORD_DEFAULT);
+        $data["clave"] = $clave;
+        
         $stmt->execute($data);
 
         $object->setId($this->conn->lastInsertId());
