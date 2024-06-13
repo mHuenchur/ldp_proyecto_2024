@@ -15,17 +15,12 @@ final class ClienteDAO extends DAO implements InterfaceDAO{
     }
     public function save(InterfaceDTO $object): void{
         //********* AGREGAR VALIDACIONES
-
-        $sql = "INSERT INTO {$this->table} VALUES (DEFAULT, :apellido, :nombres, :dni, :cuit, :tipo, :provinciaId, 
-        :localidad, :telefono, :correo);";
+        $sql = "INSERT INTO {$this->table} VALUES (DEFAULT, :apellido, :nombres, :dni, :cuit, :tipo, :provinciaId, :localidad, :telefono, :correo)";
         $stmt = $this->conn->prepare($sql);
-
         $data = $object->toArray();
         unset($data["id"]);
-
         $stmt->execute($data);
         //CON CONSULTAS PREPARADAS UTILIZAR conn->exec()
-
         $object->setId($this->conn->lastInsertId());
     }
 

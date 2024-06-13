@@ -3,12 +3,21 @@ namespace app\core\controller;
 
 use app\core\controller\base\Controller;
 use app\core\controller\base\InterfaceController;
+use app\core\service\clienteService;
 
 final class ClienteController extends Controller implements InterfaceController{
 
+    public function __construct()
+    {
+        parent::__construct([
+            "app/js/cliente/clienteController.js",
+            "app/js/cliente/clienteService.js"
+        ]);
+    }
+
     //Invoca la vista principal del modulo
     public function index(): void{
-        $view = "cliente/index.php";
+        $this->view = "cliente/index.php";
         require_once APP_TEMPLATE . "template.php";
     }
 
@@ -20,18 +29,34 @@ final class ClienteController extends Controller implements InterfaceController{
 
     //Invoca a la vista correspondiente, para el alta de una nueva entidad
     public function create($id): void{
-        $view = "cliente/alta.php";
+        $this->view = "cliente/alta.php";
         require_once APP_TEMPLATE . "template.php";
     }
 
     //Gestiona los servicios correspondientes, el alta de una nueva entidad en el sistema
     public function save(): void{
-        echo 'CLIENTE - CONTROLADOR => SAVE <br>';
+        $data = json_decode(file_get_contents("php://input"), true);
+        $this->response["controlador"] = "cliente";
+        $this->response["accion"] = "save";
+        try{
+            $service = new clienteService();
+            $service->save($data);
+            $this->response["mensaje"] = "La cuenta se registro correctamente";
+        }
+        catch(\Exception $ex){
+            $this->response["error"] = $ex->getMessage();
+        }
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($this->response);
     }
+
+
+
+
 
     //Invoca a la vista correspondiente, para poder modificar los datos deuna entidad existente
     public function edit($id): void{
-        $view = "cliente/modificar.php";
+        $this->view = "cliente/modificar.php";
         require_once APP_TEMPLATE . "template.php";
     }
 

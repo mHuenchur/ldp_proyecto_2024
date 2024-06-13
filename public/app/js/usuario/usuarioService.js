@@ -1,12 +1,12 @@
 let userService = {
-    save: (data) => {
+    save: (datos) => {
         fetch("usuario/save", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(datos)
         })
         .then(response => {
             if(!response.ok){

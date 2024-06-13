@@ -17,7 +17,8 @@ final class ClienteDTO implements InterfaceDTO{
         $this->setDni($data["dni"] ?? "");
         $this->setCuit($data["cuit"] ?? "");
         $this->setTipo($data["tipo"] ?? 1);
-        $this->setProvinciaId($data["provinciaId"] ?? 2);
+        //MODIFICAR ID PROVINCIA
+        $this->setProvinciaId($data["provinciaId"] ?? 6);
         $this->setLocalidad($data["localidad"] ?? "");
         $this->setTelefono($data["telefono"] ?? "");
         $this->setCorreo($data["correo"] ?? "");
@@ -71,25 +72,44 @@ final class ClienteDTO implements InterfaceDTO{
         : "";
     }
     public function setDni($dni): void{
-        $this->dni = $dni;
+        $this->dni = 
+        is_string($dni) && (strlen($dni) == 8)
+        ? $dni
+        : "";
     }
     public function setCuit($cuit): void{
-        $this->cuit = $cuit;
+        $this->cuit = 
+        is_string($cuit) && (strlen($cuit) == 11)
+        ? $cuit
+        : "";
     }
     public function setTipo($tipo): void{
-        $this->tipo = $tipo;
+        $this->tipo = 
+        ($tipo === 0 || $tipo === 1)
+        ? $tipo
+        : 1;
     }
+    //MODIFICAR IDS LUEGO
     public function setProvinciaId($provinciaId): void{
-        $this->provinciaId = $provinciaId;
+        $this->provinciaId = (is_integer($provinciaId) && $provinciaId > 5) ? $provinciaId : 6;;
     }
     public function setLocalidad($localidad): void{
-        $this->localidad = $localidad;
+        $this->localidad = 
+        is_string($localidad) && (strlen(trim($localidad)) <= 45) 
+        ? trim($localidad) 
+        : "";
     }
     public function setTelefono($telefono): void{
-        $this->telefono = $telefono;
+        $this->telefono = 
+        is_string($telefono) && (strlen(trim($telefono)) <= 45) 
+        ? trim($telefono) 
+        : "";
     }
     public function setCorreo($correo): void{
-        $this->correo = $correo;
+        $this->correo = 
+        is_string($correo) && filter_var($correo, FILTER_VALIDATE_EMAIL)
+        ? trim($correo) 
+        : "";
     }
     /***************************************************  METODOS  */
     public function toArray(): array

@@ -51,16 +51,17 @@ try{
 
     echo '<p>Cliente agregado a BD</p>';
         */
-        /*
+        
         $data = [
             "id" => 0,
-            "nombre" => "Santa Cruz"
+            "nombre" => "Rio Negro"
         ];
     
-        //$provinciaDto = new ProvinciaDTO($data);
+        $provinciaDto = new ProvinciaDTO($data);
         $provinciaDao = new ProvinciaDAO($conexion);
-        $provinciaDto = $provinciaDao->load(3);
+        $provinciaDao->save($provinciaDto);
 
+        /*
         print_r($provinciaDto->toArray());
 
         //ESTO LO TIENE QUE HACER EL SERVICIO
