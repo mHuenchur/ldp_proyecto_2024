@@ -16,7 +16,7 @@ final class ClienteDTO implements InterfaceDTO{
         $this->setNombres($data["nombres"] ?? "");
         $this->setDni($data["dni"] ?? "");
         $this->setCuit($data["cuit"] ?? "");
-        $this->setTipo($data["tipo"] ?? 1);
+        $this->setTipo($data["tipo"] ?? 2);
         //MODIFICAR ID PROVINCIA
         $this->setProvinciaId($data["provinciaId"] ?? 6);
         $this->setLocalidad($data["localidad"] ?? "");
@@ -85,9 +85,9 @@ final class ClienteDTO implements InterfaceDTO{
     }
     public function setTipo($tipo): void{
         $this->tipo = 
-        ($tipo === 0 || $tipo === 1)
+        ($tipo === 1 || $tipo === 2)
         ? $tipo
-        : 1;
+        : 2;
     }
     //MODIFICAR IDS LUEGO
     public function setProvinciaId($provinciaId): void{

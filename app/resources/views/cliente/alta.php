@@ -1,5 +1,6 @@
 <h2>vista -> cliente -> alta</h2>
 <button id="btnClienteAlta" class="btn btn-outline-success m-3">Registrar</button>
+<button id="btnClienteLoad" class="btn btn-outline-success m-3">Cargar Cliente</button>
 <form id="formularioAlta" class="my-4 was-validated" action="usuario/alta" method="post">
                 <div class="container-fluid">
                     <div class="row justify-content-center">

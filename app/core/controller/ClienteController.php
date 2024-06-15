@@ -24,7 +24,17 @@ final class ClienteController extends Controller implements InterfaceController{
     //Gestiona los servicios correspondientes, para la busqueda de una entidad existente en el sistema.
     //se debe enviar el id del cliente en la peticion
     public function load($id): void{
-        echo 'CLIENTE - CONTROLADOR => LOAD <br>';
+        $this->response["controlador"] = "cliente";
+        $this->response["accion"] = "load";
+        try{
+            $service = new clienteService();
+            $this->response["result"] = $service->load($id)->toArray();
+            $this->response["mensaje"] = "SE ENCONTRO EL CLIENTE";
+        }
+        catch(\Exception $ex){
+            $this->response["error"] = $ex->getMessage();
+        }
+        echo json_encode($this->response);
     }
 
     //Invoca a la vista correspondiente, para el alta de una nueva entidad

@@ -1,18 +1,21 @@
 let clientController = {
     data: {
         id: 0,
-        apellido: "Fort",
+        apellido: "Sanz",
         nombres: "Ricardo",
-        dni: "46578678",
-        cuit: "20465786785",
-        tipo: 1,
-        provinciaId: 7,
-        localidad: "Miami",
+        dni: "94756131",
+        cuit: "20947561315",
+        tipo: 2,
+        provinciaId: 6,
+        localidad: "Las Heras",
         telefono: "298374632",
-        correo: "rickyFort@gmail.com"
+        correo: "rSanz@gmail.com"
     },
     save: () => {
         clientService.save(clientController.data);
+    },
+    load: (id) => {
+        clientService.load(id);
     }
 }
 
@@ -21,5 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     //btnUsuarioAlta.onclick = clientController.save;
     btnClienteAlta.onclick = () => {
         clientController.save()
+    }
+    let btnClienteLoad = document.getElementById("btnClienteLoad");
+    //btnUsuarioAlta.onclick = clientController.save;
+    btnClienteLoad.onclick = () => {
+        clientController.load(18)
     }
 })

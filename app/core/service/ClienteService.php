@@ -21,7 +21,10 @@ final class clienteService extends Service implements InterfaceService{
     }
 
     public function load($id): ClienteDTO{
-        return new ClienteDTO();
+        $conn = Connection::get();
+        $dao = new ClienteDAO($conn);
+        $dto = $dao->load($id);
+        return $dto;
     }
 
     public function update(array $object): void{
