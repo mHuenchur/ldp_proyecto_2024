@@ -47,5 +47,27 @@ let clientService = {
         .catch(error => {
             console.error("Error en la peticion ", error)
         });
+    },
+    delete: (id) => {
+        fetch("cliente/delete/"+ id, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if(!response.ok){
+                throw new Error(response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data.result);
+            if(data.error != ""){
+                console.error("Error interno")
+            }else{
+                console.log("Todo bien")
+            }
+        })
+        .catch(error => {
+            console.error("Error en la peticion ", error)
+        });
     }
 }

@@ -1,7 +1,6 @@
 <h2>vista -> cliente -> alta</h2>
-<button id="btnClienteAlta" class="btn btn-outline-success m-3">Registrar</button>
-<button id="btnClienteLoad" class="btn btn-outline-success m-3">Cargar Cliente</button>
-<form id="formularioAlta" class="my-4 was-validated" action="usuario/alta" method="post">
+
+<form id="formularioAlta" class="my-4 was-validated" action="cliente/save" method="post">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-sm-7">
@@ -17,14 +16,14 @@
                                     </div>
                                     <div class="mb-2">
                                         <label for="datoNombres" class="form-label">Nombres</label>
-                                        <input type="text" id="datoNombre" name="datoNombres" class="form-control" required maxlength="45">
+                                        <input type="text" id="datoNombres" name="datoNombres" class="form-control" required maxlength="45">
                                         <div class="invalid-feedback">
                                             Completar campo
                                         </div>
                                     </div>
                                     <div class="mb-2">
                                         <label for="datoDni" class="form-label">DNI</label>
-                                        <input type="number" id="datoDni" name="datoDni" class="form-control" required maxlength="8" minlength="8">
+                                        <input type="number" id="datoDni" name="datoDni" class="form-control is-invalid" required maxlength="8" minlength="8">
                                         <div class="invalid-feedback">
                                             Completar campo
                                         </div>
@@ -49,22 +48,26 @@
                                         </div>
                                     </div>
                                     <div class="mb-2">
-                                        <label for="datoNombres" class="form-label">Provincia</label>
-                                        <input type="text" id="datoNombre" name="datoNombres" class="form-control" required maxlength="45">
+                                        <label for="datoProvincia" class="form-label">Provincia</label>
+                                        <select class="form-select" id="datoProvincia" name="datoProvincia" required>
+                                            <option value="" selected>Seleccionar</option>
+                                            <option value="6">Santa Cruz</option>
+                                            <option value="7">Rio Negro</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Seleccionar
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="datoLocalidad" class="form-label">Localidad</label>
+                                        <input type="text" id="datoLocalidad" name="datoLocalidad" class="form-control" required maxlength="45">
                                         <div class="invalid-feedback">
                                             Completar campo
                                         </div>
                                     </div>
                                     <div class="mb-2">
-                                        <label for="datoNombres" class="form-label">Localidad</label>
-                                        <input type="text" id="datoNombre" name="datoNombres" class="form-control" required maxlength="45">
-                                        <div class="invalid-feedback">
-                                            Completar campo
-                                        </div>
-                                    </div>
-                                    <div class="mb-2">
-                                        <label for="datoNombres" class="form-label">Telefono</label>
-                                        <input type="text" id="datoNombre" name="datoNombres" class="form-control" required maxlength="45">
+                                        <label for="datoTelefono" class="form-label">Telefono</label>
+                                        <input type="text" id="datoTelefono" name="datoTelefono" class="form-control" required maxlength="45">
                                         <div class="invalid-feedback">
                                             Completar campo
                                         </div>
@@ -79,7 +82,7 @@
                                 </div>
                                 <div class="card-footer text-muted">
                                     <div>
-                                        <button type="button" class="btn btn-primary btn-lg" onclick="cuenta.alta()">Enviar</button>
+                                        <button id="btnClienteAlta" type="button" class="btn btn-primary btn-lg">Enviar</button>
                                         <button type="reset" class="btn btn-primary btn-lg">Resetear</button>
                                     </div>
                                 </div>

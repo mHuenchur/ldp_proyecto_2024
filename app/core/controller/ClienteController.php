@@ -77,7 +77,17 @@ final class ClienteController extends Controller implements InterfaceController{
 
     //Gestiona los servicios correspondientes, para la eliminacion fisica de la entidad
     public function delete(): void{
-        echo 'CLIENTE - CONTROLADOR => DELETE <br>';
+        $this->response["controlador"] = "cliente";
+        $this->response["accion"] = "delete";
+        try{
+            $service = new clienteService();
+            $this->response["result"] = $service->delete();
+            $this->response["mensaje"] = "SE ENCONTRO EL CLIENTE";
+        }
+        catch(\Exception $ex){
+            $this->response["error"] = $ex->getMessage();
+        }
+        echo json_encode($this->response);
     }
 
 }
