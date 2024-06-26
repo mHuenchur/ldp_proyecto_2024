@@ -21,11 +21,11 @@ final class Request{
         return $this->action;
     }
 
-    public function getId(): string{
+    public function getId(): int{
         return $this->id;
     }
 
-    public function getData(): string{
+    public function getData(): array{
         return $this->data;
     }
 

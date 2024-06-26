@@ -14,14 +14,6 @@ let userService = {
             }
             return response.json()
         })
-        .then(data => {
-            if(data.error != ""){
-                console.error("Error interno")
-            }else{
-                console.log("Todo bien")
-            }
-            console.log("Respuesta del servidor ", data)
-        })
         .catch(error => {
             console.error("Error en la peticion ", error)
         });

@@ -44,6 +44,11 @@ final class ProvinciaDAO extends DAO implements InterfaceDAO{
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(["id" => $id]);
 
+        //AGREGAR ESTO EN TODOS LOS LOAD
+        if($stmt->rowCount() !== 1){
+            throw new \Exception("No se encontro la provincia para el id = " . $id);
+        }
+
         return new ProvinciaDTO($stmt->fetch(\PDO::FETCH_ASSOC));
     }
 

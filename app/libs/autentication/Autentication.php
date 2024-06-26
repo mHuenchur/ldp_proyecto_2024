@@ -17,18 +17,18 @@ final class Autentication{
         if($stmt->rowCount() !== 1){
             throw new \Exception("El usuario o la clave es inválido");
         }
-        $cuenta = $stmt->fetch();
+        $cuenta = $stmt->fetch(\PDO::FETCH_OBJ);
 
         //LE QUITE ESTO $cuenta->clave POR ESTO $cuenta["clave"]
-        if(!password_verify($pass, $cuenta["clave"])){
+        if(!password_verify($pass, $cuenta->clave)){
             throw new \Exception("El usuario o la clave es inválido");
         }
         //AQUI TAMBIEN
-        if($cuenta["estado"] !== 1){
+        if($cuenta->estado !== 1){
             throw new \Exception("Su cuenta esta inactiva");
         }
         //AQUI TAMBIEN
-        if($cuenta["resetear"] !== 0){
+        if($cuenta->resetear !== 0){
             throw new \Exception("Su clave ha caducado");
         }
 

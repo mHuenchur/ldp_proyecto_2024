@@ -21,12 +21,9 @@ let userController = {
 document.addEventListener("DOMContentLoaded", () => {
     let btnUsuarioAlta = document.getElementById("btnUsuarioAlta");
     //btnUsuarioAlta.onclick = userController.save;
-    btnUsuarioAlta.onclick = () => {
-        userController.save()
-        if(btnUsuarioAlta != null){
-            btnUsuarioAlta.onclick = () => {
-                userController.save()
-            }
+    if(btnUsuarioAlta != null){
+        btnUsuarioAlta.onclick = () => {
+            userController.save()
         }
     }
 })
