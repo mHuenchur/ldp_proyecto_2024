@@ -100,10 +100,7 @@ final class UsuarioDTO implements InterfaceDTO{
         : "";
     }
     public function setClave($clave): void{
-        $this->clave = 
-        is_string($clave) && preg_match('/^[a-zA-Z0-9]{6,15}$/', $clave) 
-        ? $clave
-        : "";
+        $this->clave = $clave;
     }
     public function setPerfilId($perfilId): void{
         $this->perfilId = 

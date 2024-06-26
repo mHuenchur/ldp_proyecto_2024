@@ -14,7 +14,7 @@
         </li>
       </ul>
       <div>
-        <button type="button" class="btn btn-outline-primary" onclick="">Cerrar sesión</button>
+        <button class="btn btn-dark float-end m-1" onclick="window.location.href='autenticacion/logout'">Cerrar sesión</button>
         </div>
     </div>
   </div>

@@ -11,6 +11,7 @@ class ComposerStaticInit1be25ba6f62ff004870cad0d9f852a01
         array (
             'app\\libs\\' => 9,
             'app\\core\\' => 9,
+            'app\\' => 4,
         ),
     );
 
@@ -22,6 +23,10 @@ class ComposerStaticInit1be25ba6f62ff004870cad0d9f852a01
         'app\\core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core',
+        ),
+        'app\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/',
         ),
     );
 

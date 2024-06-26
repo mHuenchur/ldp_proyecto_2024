@@ -1,17 +1,20 @@
 let userController = {
     data: {
         id: 0,
-        apellido: "Huenchur",
-        nombres: "Mauricio",
-        cuenta: "mHuenchur",
-        clave: "clave123",
-        correo: "huenchur@gmail.com",
+        apellido: "Santana",
+        nombres: "Juan",
+        cuenta: "jSantana",
+        clave: "gtre123",
+        correo: "jSantana@gmail.com",
         perfilId: 2,
         horaEntrada: "",
         horaSalida: ""
     },
     save: () => {
-        userService.save(userController.data);
+        userService.save(userController.data)
+        .then(response => {
+            console.log("Respuesta del servidor", response)
+        })
     }
 }
 
@@ -20,5 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
     //btnUsuarioAlta.onclick = userController.save;
     btnUsuarioAlta.onclick = () => {
         userController.save()
+        if(btnUsuarioAlta != null){
+            btnUsuarioAlta.onclick = () => {
+                userController.save()
+            }
+        }
     }
 })

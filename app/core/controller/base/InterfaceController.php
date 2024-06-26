@@ -1,6 +1,9 @@
 <?php
 namespace app\core\controller\base;
 
+use app\libs\request\Request;
+use app\libs\response\Response;
+
 interface InterfaceController{
     
     //Invoca la vista principal del modulo
@@ -14,7 +17,7 @@ interface InterfaceController{
     public function create($id): void;
 
     //Gestiona los servicios correspondientes, el alta de una nueva entidad en el sistema
-    public function save(): void;
+    public function save(Request $request, Response $response): void;
 
     //Invoca a la vista correspondiente, para poder modificar los datos deuna entidad existente
     public function edit($id): void;
