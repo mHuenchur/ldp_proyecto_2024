@@ -15,7 +15,9 @@ let authController = {
 
 document.addEventListener("DOMContentLoaded", ()=>{
     let btnLogin = document.getElementById("btnLogin")
-    btnLogin.onclick = () => {
-        authController.login()
+    if(btnLogin != null){
+        btnLogin.onclick = () => {
+            authController.login()
+        }
     }
 })

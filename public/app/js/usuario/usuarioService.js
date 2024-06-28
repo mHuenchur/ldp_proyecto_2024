@@ -1,12 +1,12 @@
 let userService = {
-    save: (datos) => {
+    save: (data) => {
         fetch("usuario/save", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify(datos)
+            body: JSON.stringify(data)
         })
         .then(response => {
             if(!response.ok){
@@ -15,7 +15,7 @@ let userService = {
             return response.json()
         })
         .catch(error => {
-            console.error("Error en la peticion ", error)
+            console.error("ERROR EN LA PETICION ", error)
         });
     }
 }

@@ -1,11 +1,11 @@
 let userController = {
     data: {
         id: 0,
-        apellido: "Santana",
-        nombres: "Juan",
-        cuenta: "jSantana",
-        clave: "gtre123",
-        correo: "jSantana@gmail.com",
+        apellido: "",
+        nombres: "",
+        cuenta: "",
+        clave: "",
+        correo: "",
         perfilId: 2,
         horaEntrada: "",
         horaSalida: ""

@@ -19,15 +19,14 @@ final class Autentication{
         }
         $cuenta = $stmt->fetch(\PDO::FETCH_OBJ);
 
-        //LE QUITE ESTO $cuenta->clave POR ESTO $cuenta["clave"]
         if(!password_verify($pass, $cuenta->clave)){
             throw new \Exception("El usuario o la clave es inválido");
         }
-        //AQUI TAMBIEN
+
         if($cuenta->estado !== 1){
             throw new \Exception("Su cuenta esta inactiva");
         }
-        //AQUI TAMBIEN
+
         if($cuenta->resetear !== 0){
             throw new \Exception("Su clave ha caducado");
         }
@@ -41,7 +40,13 @@ final class Autentication{
     }
 
     public static function logout(): void{
-
+        session_unset();
+        if (ini_get("session.use_cookies")){
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000, $params["path"],
+            $params["domain"], $params["secure"], $params["httponly"]);
+            }
+        session_destroy();
     }
 
 }
