@@ -8,8 +8,6 @@ use app\libs\connection\Connection;
 use app\core\model\dto\UsuarioDTO;
 use app\core\model\dao\UsuarioDAO;
 
-
-
 final class UsuarioService extends Service implements InterfaceService{
     public function __construct()
     {
@@ -27,7 +25,9 @@ final class UsuarioService extends Service implements InterfaceService{
     }
 
     public function update(array $object): void{
-
+        $conn = Connection::get();
+        $dao = new UsuarioDAO($conn);
+        $dao->update(new UsuarioDTO($object));
     }
 
     public function delete($id): void{

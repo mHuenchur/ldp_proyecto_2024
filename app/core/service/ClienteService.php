@@ -8,7 +8,7 @@ use app\core\service\base\InterfaceService;
 use app\core\service\base\Service;
 use app\libs\connection\connection;
 
-final class clienteService extends Service implements InterfaceService{
+final class ClienteService extends Service implements InterfaceService{
     public function __construct()
     {
         parent::__construct();
@@ -28,7 +28,9 @@ final class clienteService extends Service implements InterfaceService{
     }
 
     public function update(array $object): void{
-
+        $conn = Connection::get();
+        $dao = new ClienteDAO($conn);
+        $dao->update(new ClienteDTO($object));
     }
 
     public function delete($id): void{
