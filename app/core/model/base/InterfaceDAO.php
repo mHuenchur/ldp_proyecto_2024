@@ -14,4 +14,6 @@ interface InterfaceDAO{
 
     public function delete($id): void;
 
+    public function list(): array;
+
 }
