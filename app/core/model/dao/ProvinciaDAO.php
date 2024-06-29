@@ -68,6 +68,11 @@ final class ProvinciaDAO extends DAO implements InterfaceDAO{
         ]);
     }
 
+    public function list(): array{
+
+        return [];
+    }
+
     //ESTO VA EN TODOS LOS DAO
     private function validate(ProvinciaDTO $object): void{
         if($object->getNombre() == ""){

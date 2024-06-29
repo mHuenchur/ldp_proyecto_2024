@@ -53,6 +53,11 @@ final class PerfilDAO extends DAO implements InterfaceDAO{
         ]);
     }
 
+    public function list(): array{
+
+        return [];
+    }
+
     private function validate(PerfilDTO $object): void{
         if($object->getNombre() == ""){
             throw new \Exception("El dato nombre del perfil es obligatorio");

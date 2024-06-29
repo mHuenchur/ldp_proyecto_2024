@@ -68,4 +68,27 @@ final class UsuarioDAO extends DAO implements InterfaceDAO{
 
         return $stmt->fetchAll(\PDO::FETCH_NUM);
     }
+
+    //COMPROBAR SI FUNCIONAN AMBAS FUNCIONES
+    public function enable($object): void{
+        $sql = "UPDATE {$this->table} SET estado = 1 
+        WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($object->toArray());
+    }
+
+    public function disable($object): void{
+        $sql = "UPDATE {$this->table} SET estado = 0 
+        WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($object->toArray());
+    }
+
+    public function reset($object): void{
+        $sql = "UPDATE {$this->table} SET estado = 0 
+        WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($object->toArray());
+    }
+    ///LAS VALIDACIONES
 }

@@ -59,4 +59,11 @@ final class ClienteDAO extends DAO implements InterfaceDAO{
 
         return $stmt->fetchAll(\PDO::FETCH_NUM);
     }
+
+
+    private function validate(ClienteDTO $object): void{
+        if($object->getNombres() == ""){
+            throw new \Exception("El dato nombres de cliente es obligatorio");
+        }
+    }
 }
