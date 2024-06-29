@@ -1,6 +1,6 @@
 let userService = {
     save: (data) => {
-        fetch("usuario/save", {
+        return fetch("usuario/save", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -35,7 +35,9 @@ final class UsuarioService extends Service implements InterfaceService{
     }
 
     public function list(): array{
-        return [];
+        $conn = Connection::get();
+        $dao = new UsuarioDAO($conn);
+        return $dao->list();
     }
     
 }

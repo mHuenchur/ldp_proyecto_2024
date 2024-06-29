@@ -17,6 +17,8 @@ final class ClienteController extends Controller implements InterfaceController{
 
     //Invoca la vista principal del modulo
     public function index(): void{
+        $service = new clienteService();
+        $data = $service->list();
         $this->view = "cliente/index.php";
         require_once APP_TEMPLATE . "template.php";
     }

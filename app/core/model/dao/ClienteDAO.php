@@ -50,4 +50,13 @@ final class ClienteDAO extends DAO implements InterfaceDAO{
             "id" => $id
         ]);
     }
+
+    public function list(): array{
+
+        $sql = "SELECT apellido, nombres, tipo FROM {$this->table}";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_NUM);
+    }
 }

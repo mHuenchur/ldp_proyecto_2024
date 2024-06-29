@@ -19,6 +19,8 @@ final class UsuarioController extends Controller implements InterfaceController{
 
     //Invoca la vista principal del modulo
     public function index(): void{
+        $service = new UsuarioService();
+        $data = $service->list();
         $this->view = "usuario/index.php";
         require_once APP_TEMPLATE . "template.php";
     }
