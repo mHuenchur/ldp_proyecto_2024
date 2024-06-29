@@ -1,0 +1,1 @@
+<h2>Inicio de la aplicación -> Index</h2>

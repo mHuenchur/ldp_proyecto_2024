@@ -4,6 +4,8 @@ namespace app\core\controller;
 use app\core\controller\base\Controller;
 use app\core\controller\base\InterfaceController;
 use app\core\service\clienteService;
+use app\libs\request\Request;
+use app\libs\response\Response;
 
 final class ClienteController extends Controller implements InterfaceController{
 
@@ -17,7 +19,7 @@ final class ClienteController extends Controller implements InterfaceController{
 
     //Invoca la vista principal del modulo
     public function index(): void{
-        $service = new clienteService();
+        $service = new ClienteService();
         $data = $service->list();
         $this->view = "cliente/index.php";
         require_once APP_TEMPLATE . "template.php";
@@ -26,6 +28,8 @@ final class ClienteController extends Controller implements InterfaceController{
     //Gestiona los servicios correspondientes, para la busqueda de una entidad existente en el sistema.
     //se debe enviar el id del cliente en la peticion
     public function load($id): void{
+
+        /*
         $this->response["controlador"] = "cliente";
         $this->response["accion"] = "load";
         try{
@@ -37,6 +41,8 @@ final class ClienteController extends Controller implements InterfaceController{
             $this->response["error"] = $ex->getMessage();
         }
         echo json_encode($this->response);
+
+        */
     }
 
     //Invoca a la vista correspondiente, para el alta de una nueva entidad
@@ -46,25 +52,13 @@ final class ClienteController extends Controller implements InterfaceController{
     }
 
     //Gestiona los servicios correspondientes, el alta de una nueva entidad en el sistema
-    public function save(): void{
-        $data = json_decode(file_get_contents("php://input"), true);
-        $this->response["controlador"] = "cliente";
-        $this->response["accion"] = "save";
-        try{
-            $service = new clienteService();
-            $service->save($data);
-            $this->response["mensaje"] = "La cuenta se registro correctamente";
-        }
-        catch(\Exception $ex){
-            $this->response["error"] = $ex->getMessage();
-        }
-        header("Content-Type: application/json; charset=utf-8");
-        echo json_encode($this->response);
+    public function save(Request $request, Response $response): void{
+
+        $service = new clienteService();
+        $service->save($request->getData());
+        $response->setMessage("La cuenta de cliente se registró correctamente");
+        $response->send();
     }
-
-
-
-
 
     //Invoca a la vista correspondiente, para poder modificar los datos deuna entidad existente
     public function edit($id): void{
@@ -79,6 +73,7 @@ final class ClienteController extends Controller implements InterfaceController{
 
     //Gestiona los servicios correspondientes, para la eliminacion fisica de la entidad
     public function delete(): void{
+        /*
         $this->response["controlador"] = "cliente";
         $this->response["accion"] = "delete";
         try{
@@ -90,6 +85,9 @@ final class ClienteController extends Controller implements InterfaceController{
             $this->response["error"] = $ex->getMessage();
         }
         echo json_encode($this->response);
+
+        */
+        //TERMINAR ESTOOOO
     }
 
 }

@@ -7,7 +7,7 @@ let authController = {
         authService.login(authController.data)
         .then(response => {
             if(response.error === "" && response.mensaje === "OK"){
-                window.location.href = "usuario/index"
+                window.location.href = "inicio/index"
             }
         })
     }
