@@ -79,7 +79,6 @@ final class ProvinciaDAO extends DAO implements InterfaceDAO{
             throw new \Exception("El dato nombre de la provincia es obligatorio");
         }
     }
-    //PARA LOS DEMAS... LO DEL CUIT-EMPRESA DNI-PERSONA PARA EL USUARIO Y EL CLIENTE
 
     private function validateName(ProvinciaDTO $object): void{
         $sql = "SELECT count(id) AS cantidad FROM {$this->table} WHERE nombre = :nombre AND id != :id";
