@@ -25,12 +25,20 @@ let clientController = {
             clientController.data.telefono = form.datoTelefono.value;
             clientController.data.correo = form.datoCorreo.value;
 
-            clientService.save(clientController.data);
+            clientService.save(clientController.data)
+            .then(response => {
+                console.log("Respuesta del servidor", response)
+                if(response.error == ""){
+                    form.reset();
+                }
+            })
         }
     },
+
     load: (id) => {
         clientService.load(id);
     },
+
     delete: () => {
         clientService.delete(id);
     }

@@ -1,6 +1,6 @@
 let clientService = {
     save: (data) => {
-        fetch("cliente/save", {
+        return fetch("cliente/save", {
             method: "POST",
             headers: {
                 "Content-Type": "text/javascript",
@@ -9,20 +9,10 @@ let clientService = {
             body: JSON.stringify(data)
         })
         .then(response => {
-            console.log(response);
             if(!response.ok){
                 throw new Error(response.status);
             }
             return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            if(data.error != ""){
-                console.error("Error interno")
-            }else{
-                console.log("Todo bien")
-            }
-            console.log("Respuesta del servidor ", data)
         })
         .catch(error => {
             console.error("Error en la peticion ", error)

@@ -1,4 +1,10 @@
-<h2>vista -> cliente -> alta</h2>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="inicio/index">Home</a></li>
+    <li class="breadcrumb-item"><a href="cliente/index">Cliente</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Alta</li>
+  </ol>
+</nav>
 
 <form id="formularioAlta" class="my-4 was-validated" action="cliente/save" method="post">
                 <div class="container-fluid">

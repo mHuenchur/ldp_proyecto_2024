@@ -21,7 +21,9 @@ final class RoutingMiddleware extends Middleware implements MiddlewareInterface{
         $response->setAction($request->getAction());
 
         call_user_func_array(
+            //DEFINIMOS CONTROLADRO, ACCION
             array(new $controllerName, $request->getAction()),
+            //Y PARAMETROS
             array($request, $response)
         );
     }

@@ -1,4 +1,11 @@
-<h2>vista -> usuario -> alta</h2>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="inicio/index">Home</a></li>
+    <li class="breadcrumb-item"><a href="usuario/index">Usuario</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Alta</li>
+  </ol>
+</nav>
+
 <button id="btnUsuarioAlta" class="btn btn-outline-success m-3">Registrar</button>
 <form id="formularioAlta" class="my-4 was-validated" action="usuario/alta" method="post">
                 <div class="container-fluid">

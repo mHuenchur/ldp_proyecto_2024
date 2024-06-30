@@ -13,7 +13,7 @@
         <?php
         if(isset($_SESSION["token"]) && $_SESSION["token"] == APP_TOKEN){
             require_once "includes/menu.php";
-            require_once "includes/bread_crum.php";
+            //require_once "includes/bread_crum.php";
         }
         ?>
     </header>
