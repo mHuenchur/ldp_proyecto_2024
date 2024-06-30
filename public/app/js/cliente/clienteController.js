@@ -26,7 +26,6 @@ let clientController = {
             clientController.data.correo = form.datoCorreo.value;
 
             clientService.save(clientController.data);
-            console.log("Cliente agregado!");
         }
     },
     load: (id) => {

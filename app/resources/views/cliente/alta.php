@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="mb-2">
                                         <label for="datoDni" class="form-label">DNI</label>
-                                        <input type="number" id="datoDni" name="datoDni" class="form-control is-invalid" required maxlength="8" minlength="8">
+                                        <input type="number" id="datoDni" name="datoDni" class="form-control" required maxlength="8" minlength="8">
                                         <div class="invalid-feedback">
                                             Completar campo
                                         </div>
@@ -51,7 +51,7 @@
                                         <label for="datoProvincia" class="form-label">Provincia</label>
                                         <select class="form-select" id="datoProvincia" name="datoProvincia" required>
                                             <option value="" selected>Seleccionar</option>
-                                            <option value="6">Santa Cruz</option>
+                                            <option value="1">Santa Cruz</option>
                                             <option value="7">Rio Negro</option>
                                         </select>
                                         <div class="invalid-feedback">

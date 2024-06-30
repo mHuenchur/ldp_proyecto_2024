@@ -10,7 +10,13 @@
           <a class="nav-link" href="cliente/index">Clientes</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="cliente/create">Cliente - ALTA</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="usuario/index">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="usuario/create">Usuario - ALTA</a>
         </li>
       </ul>
       <div>

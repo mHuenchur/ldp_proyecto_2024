@@ -28,7 +28,7 @@ final class UsuarioController extends Controller implements InterfaceController{
     //Gestiona los servicios correspondientes, para la busqueda de una entidad existente en el sistema.
     //se debe enviar el id del cliente en la peticion
     public function load($id): void{
-        echo 'USUARIO - CONTROLADOR => LOAD <br>';
+        //BUSCA UN USUARIO EN EL SISTEMA
     }
 
     //Invoca a la vista correspondiente, para el alta de una nueva entidad

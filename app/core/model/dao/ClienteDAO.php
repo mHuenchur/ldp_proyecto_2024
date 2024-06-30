@@ -15,6 +15,9 @@ final class ClienteDAO extends DAO implements InterfaceDAO{
     }
     public function save(InterfaceDTO $object): void{
         //********* AGREGAR VALIDACIONES
+        $this->validateDni($object);
+
+
         $sql = "INSERT INTO {$this->table} VALUES (DEFAULT, :apellido, :nombres, :dni, :cuit, :tipo, :provinciaId, :localidad, :telefono, :correo)";
         $stmt = $this->conn->prepare($sql);
         $data = $object->toArray();
@@ -35,6 +38,7 @@ final class ClienteDAO extends DAO implements InterfaceDAO{
 
     public function update(InterfaceDTO $object): void{
         //********* AGREGAR VALIDACIONES
+        $this->validateDni($object);
 
         $sql = "UPDATE {$this->table} SET apellido = :apellido, nombres = :nombres, dni = :dni, cuit = :cuit, 
         tipo = :tipo, provinciaId = :provinciaId, localidad = :localidad, telefono = :telefono, correo = :correo 
@@ -61,9 +65,13 @@ final class ClienteDAO extends DAO implements InterfaceDAO{
     }
 
 
-    private function validate(ClienteDTO $object): void{
-        if($object->getNombres() == ""){
-            throw new \Exception("El dato nombres de cliente es obligatorio");
+    private function validateDni(ClienteDTO $object): void{
+        $sql = "SELECT COUNT(dni) AS cantidad FROM `clientes` WHERE dni = {$object->getDni()}";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_OBJ);
+        if($result->cantidad > 0){
+            throw new \Exception("El DNI <strong>{$object->getDni()}</strong> ya existe en la base de datos.)");
         }
     }
 }
