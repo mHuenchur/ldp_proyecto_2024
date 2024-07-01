@@ -8,7 +8,7 @@
         }
     ?>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <?php
         if(isset($_SESSION["token"]) && $_SESSION["token"] == APP_TOKEN){
@@ -25,7 +25,9 @@
     </main>
 
         <?php
-            require_once "includes/footer.php";
+            if(isset($_SESSION["token"]) && $_SESSION["token"] == APP_TOKEN){
+                require_once "includes/footer.php";
+            }
         ?>
         
 </body>

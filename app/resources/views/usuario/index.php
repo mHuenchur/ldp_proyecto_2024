@@ -6,7 +6,7 @@
 </nav>
 
 <div class="container-fluid">
-    <table class="table table-bordered table-striped table-primary text-center">
+    <table class="table table-responsive table-bordered table-striped table-primary text-center">
         <thead>
             <tr>
                 <th>#</th>
