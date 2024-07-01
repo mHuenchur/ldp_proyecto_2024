@@ -6,7 +6,7 @@
 </nav>
 
 <div class="container-fluid">
-    <table class="table table-responsive table-bordered table-striped table-primary text-center">
+    <table class="table table-responsive table-bordered table-striped table-secondary text-center">
         <thead>
             <tr>
                 <th>#</th>
@@ -27,9 +27,13 @@
             echo '<td>' . ($orden++) . '</td>';
             echo '<td>' . $cuenta[1] . '</td>';
             echo '<td>' . ($cuenta[2] === 1 ? 'Administrador' : 'Operador') . '</td>';
-            echo '<td>' . $cuenta[3] . '</td>';
-            echo '<td><a class="btn-consulta btn btn-primary" href="usuario/edit/'.($cuenta[0]) .'" role="button">Consulta</a>';
-            echo '<a class="btn btn-primary" href="usuario/delete" role="button">Eliminar</a></td>';
+            if($cuenta[3] === 1){
+                echo '<td><h5><span class="badge text-bg-primary">activo</span></h5></td>';
+            }else{
+                echo '<td><span class="badge text-bg-secondary">inactivo</span></td>';
+            }
+            echo '<td><a class="btn-consulta btn btn-warning" href="usuario/edit/'. ($cuenta[0]) .'" role="button">Consulta</a>';
+            echo '<a class="btn btn-danger" href="usuario/delete" role="button">Eliminar</a></td>';
             echo '</tr>';
         }
     }

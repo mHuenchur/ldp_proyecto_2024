@@ -9,7 +9,8 @@ final class Autentication{
     public static function login($user, $pass): void{
         //validar formato del usuario y contraseña
         $conn = Connection::get();
-        $sql = "SELECT CONCAT(nombres,', ',apellido) AS usuario, cuenta, clave, perfilId, estado, horaEntrada, horaSalida, resetear FROM usuarios WHERE cuenta = :cuenta";
+        //$sql = "SELECT CONCAT(nombres,', ',apellido) AS usuario, cuenta, clave, perfilId, estado, horaEntrada, horaSalida, resetear FROM usuarios WHERE cuenta = :cuenta";
+        $sql = "SELECT CONCAT(nombres,', ',apellido) AS usuario, cuenta, clave, perfiles.nombre AS perfil, estado, horaEntrada, horaSalida, resetear FROM usuarios INNER JOIN perfiles ON usuarios.perfilId = perfiles.id WHERE cuenta = :cuenta"; 
         $stmt = $conn->prepare($sql);
         if(!$stmt->execute(["cuenta" => $user])){
             throw new \Exception("No se pudo <i>ejecutar</i> la consulta");
@@ -35,7 +36,7 @@ final class Autentication{
         //se crean las variables de sessión
         $_SESSION["token"] = APP_TOKEN;
         $_SESSION["usuario"] = $cuenta->usuario;
-        $_SESSION["perfilId"] = $cuenta->perfilId;
+        $_SESSION["perfil"] = $cuenta->perfil;
 
     }
 

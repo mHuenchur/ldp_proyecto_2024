@@ -40,7 +40,8 @@ let clientService = {
     },
     delete: (id) => {
         fetch("cliente/delete/"+ id, {
-            method: 'DELETE'
+            method: 'POST'
+            //GET?
         })
         .then(response => {
             if(!response.ok){
