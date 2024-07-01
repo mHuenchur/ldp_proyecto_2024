@@ -11,8 +11,8 @@ final class InicioController extends Controller implements InterfaceController{
     public function __construct()
     {
         parent::__construct([
-            "app/js/usuario/usuarioController.js",
-            "app/js/usuario/usuarioService.js"
+            //"app/js/usuario/usuarioController.js",
+            //"app/js/usuario/usuarioService.js"
         ]);
     }
 
