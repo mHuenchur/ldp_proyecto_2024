@@ -6,7 +6,6 @@
   </ol>
 </nav>
 
-<button id="btnUsuarioAlta" class="btn btn-outline-success m-3">Registrar</button>
 <form id="formularioAlta" class="my-4 was-validated" action="usuario/alta" method="post">
                 <div class="container-fluid">
                     <div class="row justify-content-center">

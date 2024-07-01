@@ -47,9 +47,12 @@ let clientController = {
 document.addEventListener("DOMContentLoaded", () => {
     let btnClienteAlta = document.getElementById("btnClienteAlta");
     //btnUsuarioAlta.onclick = clientController.save;
-    btnClienteAlta.onclick = () => {
-        clientController.save()
+    if(btnClienteAlta != null){
+        btnClienteAlta.onclick = () => {
+            clientController.save()
+        }
     }
+    
     /*
     let btnClienteLoad = document.getElementById("btnClienteLoad");
     btnClienteLoad.onclick = () => {

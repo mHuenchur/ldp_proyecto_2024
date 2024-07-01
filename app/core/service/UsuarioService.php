@@ -21,7 +21,10 @@ final class UsuarioService extends Service implements InterfaceService{
     }
 
     public function load($id): UsuarioDTO{
-        return new UsuarioDTO();
+        $conn = Connection::get();
+        $dao = new UsuarioDAO($conn);
+        
+        return $dao->load($id);
     }
 
     public function update(array $object): void{

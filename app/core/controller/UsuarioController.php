@@ -46,7 +46,9 @@ final class UsuarioController extends Controller implements InterfaceController{
     }
 
     //Invoca a la vista correspondiente, para poder modificar los datos deuna entidad existente
-    public function edit($id): void{
+    public function edit(Request $request, Response $response): void{
+        $service = new UsuarioService();
+        $data = $service->load($request->getId())->toArray();
         $this->view = "usuario/modificar.php";
         require_once APP_TEMPLATE . "template.php";
     }

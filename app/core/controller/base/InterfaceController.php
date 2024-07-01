@@ -20,7 +20,7 @@ interface InterfaceController{
     public function save(Request $request, Response $response): void;
 
     //Invoca a la vista correspondiente, para poder modificar los datos deuna entidad existente
-    public function edit($id): void;
+    public function edit(Request $request, Response $response): void;
 
     //Gestiona los servicios correspondientes, para la actualizacion de datos de una entidad exitente en el sistema
     public function update(): void;

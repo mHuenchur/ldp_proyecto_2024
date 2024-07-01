@@ -32,7 +32,7 @@ final class PerfilController extends Controller implements InterfaceController{
 
     }
 
-    public function edit($id): void{
+    public function edit(Request $request, Response $response): void{
 
     }
 

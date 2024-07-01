@@ -32,7 +32,7 @@ final class ProvinciaController extends Controller implements InterfaceControlle
 
     }
 
-    public function edit($id): void{
+    public function edit(Request $request, Response $response): void{
 
     }
 

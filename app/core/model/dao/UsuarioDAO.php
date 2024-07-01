@@ -62,7 +62,7 @@ final class UsuarioDAO extends DAO implements InterfaceDAO{
 
     public function list(): array{
 
-        $sql = "SELECT cuenta, perfilId, estado FROM {$this->table}";
+        $sql = "SELECT id, cuenta, perfilId, estado FROM {$this->table}";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 
