@@ -104,7 +104,7 @@ final class UsuarioDTO implements InterfaceDTO{
     }
     public function setPerfilId($perfilId): void{
         $this->perfilId = 
-        (is_integer($perfilId) && $perfilId > 0)
+        (is_numeric($perfilId) && $perfilId > 0)
         ? $perfilId
         : 0;
     }

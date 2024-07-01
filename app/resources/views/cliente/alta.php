@@ -6,7 +6,7 @@
   </ol>
 </nav>
 
-<form id="formularioAlta" class="my-4 was-validated" action="cliente/save" method="post">
+<form id="formularioAlta" class="my-4 was-validated" action="" method="post">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-sm-7">

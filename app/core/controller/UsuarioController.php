@@ -41,7 +41,7 @@ final class UsuarioController extends Controller implements InterfaceController{
     public function save(Request $request, Response $response): void{
         $service = new UsuarioService();
         $service->save($request->getData());
-        $response->setMessage("La cuenta se registró correctamente");
+        $response->setMessage("La cuenta de usuario se registró correctamente");
         $response->send();
     }
 

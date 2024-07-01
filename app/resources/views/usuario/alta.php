@@ -6,7 +6,7 @@
   </ol>
 </nav>
 
-<form id="formularioAlta" class="my-4 was-validated" action="usuario/alta" method="post">
+<form id="formularioAlta" class="my-4 was-validated" action="" method="post">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-sm-7">
@@ -22,7 +22,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="datoNombres" class="form-label">Nombres</label>
-                            <input type="text" id="datoNombre" name="datoNombres" class="form-control" required maxlength="45">
+                            <input type="text" id="datoNombres" name="datoNombres" class="form-control" required maxlength="45">
                             <div class="invalid-feedback">
                                 Completar campo
                             </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="card-footer text-muted">
                         <div>
-                            <button type="button" class="btn btn-primary btn-lg" onclick="">Enviar</button>
+                            <button id="btnUsuarioAlta" type="button" class="btn btn-primary btn-lg">Enviar</button>
                             <button type="reset" class="btn btn-primary btn-lg">Resetear</button>
                         </div>
                     </div>

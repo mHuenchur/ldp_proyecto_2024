@@ -91,7 +91,10 @@ final class ClienteDTO implements InterfaceDTO{
     }
     //MODIFICAR IDS LUEGO
     public function setProvinciaId($provinciaId): void{
-        $this->provinciaId = $provinciaId > 0 ? $provinciaId : 1;
+        $this->provinciaId = 
+        (is_numeric($provinciaId) && $provinciaId > 0)
+        ? $provinciaId 
+        : 1;
     }
     public function setLocalidad($localidad): void{
         $this->localidad = 

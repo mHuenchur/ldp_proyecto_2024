@@ -3,7 +3,7 @@ let clientService = {
         return fetch("cliente/save", {
             method: "POST",
             headers: {
-                "Content-Type": "text/javascript",
+                "Content-Type": "application/json",
                 "Accept": "application/json"
             },
             body: JSON.stringify(data)
@@ -15,7 +15,7 @@ let clientService = {
             return response.json();
         })
         .catch(error => {
-            console.error("Error en la peticion ", error)
+            console.error("ERROR EN LA PETICION ", error)
         });
     },
     load: (id) => {
