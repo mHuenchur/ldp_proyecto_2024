@@ -5,6 +5,7 @@
   </ol>
 </nav>
 
+<button type="button" class="btn btn-dark" onclick="window.location.href='usuario/print'">IMPRIMIR LISTADO</button>
 <div class="container-fluid">
     <table class="table table-responsive table-bordered table-striped table-secondary text-center">
         <thead>
